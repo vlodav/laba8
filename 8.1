@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+int zapolnenie(int arr[], int const size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] = rand() % 30 - 10;
+    }
+    for (int i = 0; i < size; i++)
+    {
+        return arr[i];
+    }
+}
+void vivod(int arr[], int const size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i]<<"\t";
+    }
+    cout << endl;
+}
+int min_chislo(int arr[], const int size)
+{
+    int menshee = arr[0];
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] > menshee)
+        {
+            menshee = arr[i];
+        }
+    }
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] >= 0)
+        {
+
+            if (menshee > arr[i])
+            {
+                menshee = arr[i];
+            }
+        }
+    }
+    return menshee;
+}
+int main()
+{
+    system("chcp 1251");
+    srand(time(NULL));
+    int const t = 10;
+    int a[t];
+    int b[t];
+    int c[t];
+    int d[t];
+    zapolnenie(a, t);
+    zapolnenie(b, t);
+    zapolnenie(c, t);
+    zapolnenie(d, t);
+    cout << "masiv 1: ";
+    vivod(a, t);
+    cout << "masiv 2: ";
+    vivod(b, t);
+    cout << "masiv 3: ";
+    vivod(c, t);
+    cout << "masiv 4: ";
+    vivod(d, t);
+    cout << "минимальное положительное число массива 1: " << min_chislo(a, t) << endl;
+    cout << "минимальное положительное число массива 2: " << min_chislo(b, t)<<endl;
+    cout << "минимальное положительное число массива 3: " <<min_chislo(c, t)<<endl;
+    cout << "минимальное положительное число массива 4: " <<min_chislo(d, t)<<endl;
+    int suma = min_chislo(a, t) + min_chislo(b, t) + min_chislo(c, t) + min_chislo(d, t);
+    cout << "сумма минимальных положительных  чисел массивов: " << suma;
+}
